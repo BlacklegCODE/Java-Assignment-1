@@ -1,0 +1,71 @@
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        System.out.print("1.Calculate volume of a cylinder\n2.Find factorial\n3.Check armstrong\n4.Exit\n");
+
+        Scanner scanner = new Scanner(System.in);
+
+        int choice = scanner.nextInt();
+
+        switch(choice)
+        {
+            case 1:
+                System.out.print("Enter height :");
+                int h = scanner.nextInt();
+                System.out.print("Enter radius :");
+                int r = scanner.nextInt();
+
+                //calculation
+
+                int v = (int)(3.14*Math.pow(r,2)* h);
+                System.out.println("This is the volume : " + v);
+
+                break;
+
+            case 2:
+                System.out.print("Enter a number to find its factorial :");
+                int a = scanner.nextInt();
+
+                int fact = 1;
+
+                for(int i = 1;i<=a; i++)
+                {
+                    fact *= i;
+
+                }
+
+                System.out.print( fact +" " + "is the factorial of"+" " + a );
+
+
+            case 3:
+                System.out.println("Enter a number to check :");
+                int arm = scanner.nextInt();
+
+                //arm is a number from user
+
+                                // example number
+                int digits = String.valueOf(arm).length();
+                int sum = 0;
+
+                for (int temp = arm; temp > 0; temp /= 10)
+                {
+                    int digit = temp % 10;               // get last digit
+                    int powered = (int)Math.pow(digit, digits); // raise to power
+                    sum += powered;                      // add to sum
+                }
+
+                if( sum == arm)
+                {
+                    System.out.println("Its an armstrong !");
+                }
+                else
+                {
+                    System.out.println("Its not armstrong !");
+                }
+
+        }
+    }
+}
